@@ -13,14 +13,14 @@ This project use SQlite as a backend database with Django.
 
 ## Setup
 ### Setup virtual environment
-virtualenv -p python3 venv/
+`virtualenv -p python3 venv/`
 
-source venv/bin/activate
+`source venv/bin/activate`
 
 ### Install packages
-pip3 install -r requirements.txt
+`pip3 install -r requirements.txt`
 
 ### Migrate and start server
-python3 manage.py migrate
+`python3 manage.py migrate`
 
-python3 manage.py runserver
+`python3 manage.py runserver`
