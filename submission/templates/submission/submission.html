@@ -1,0 +1,38 @@
+{% extends "account/base.html" %}
+{% block content %}
+    <center>
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if user.submission %}
+                <h3>{{user.username}} jestes juz zarejestrowany na szczepienie</h3><br/><br/>
+                <p> Twoje miejsce szczepienia oraz termin to: {{ place_text }} </p>
+            {% else %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Odpowiedz na ponizsze pytania</legend>
+                <p>Czy mial Pan/Pani wykonywana dialize? {{ sub_form.dialisis }} </p>
+                <p>Czy mial Pan/Pani w rodzinie osobe chorujaca na choroby nowotworowe? {{ sub_form.cancers }} </p>
+                <p>Czy mial Pan/Pani wykonywana transplantacje narzadow wewnetrznych? {{ sub_form.transplant }} </p>
+                <p>Czy ma Pan/Pani choroby krzepniecia krwi? {{ sub_form.thrombosis }} </p>
+                <p>Czy cierpi Pan/Pani na choroby przewlekle? {{ sub_form.chronic }} </p>
+                <p>Czy przyjmuje Pan/Pani obecnie jakies leki? Jakie?</p>
+                <p>{{ sub_form.drugs }} </p>
+                <p>Czy ma Pan/Pani dodatkowe pytania?</p>
+                <p>{{ sub_form.additional_question }} </p>
+
+                <legend class="border-bottom mb-4">Wybierz miejsce i termin wizyty</legend>
+                    {{ place_sub_form.place_id }}<br/>
+                <legend class="border-bottom mb-4">Wybierz dostepny termin wizyty</legend>
+                    {{ place_sub_form.date_time }}<br/>
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Potwierdz</button>
+            </div>
+            {% endif %}
+
+        </form>
+    </div>
+    </center>
+{% endblock content %}

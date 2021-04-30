@@ -1,0 +1,21 @@
+{% extends "account/base.html" %}
+{% block content %}
+    <div class="panel-heading">
+          <h1> Witaj {{ user.username }} ! </h1>
+    </div>
+    {% if user.user_submission %}
+        <h3> Jestes zarejestrowany na szczepienie ! </h3>
+        <p> Twoje miejsce szczepienia oraz termin to: {{ place_text }} </p>
+
+    {% else %}
+
+        <h3> Zarejestruj sie na szczepienie ! </h3>
+
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a class="ml-2" href="{% url 'submission' %}">Zarejestruj sie na szczepienie</a>
+            </small>
+        </div>
+    {% endif %}
+
+{% endblock %}
