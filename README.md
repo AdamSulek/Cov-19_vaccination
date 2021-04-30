@@ -10,3 +10,17 @@ A patient can only register for a vacant vaccination appointment, except in the 
 The table layout that makes up the database is included in the database_scheme.tif file.
 
 This project use SQlite as a backend database with Django.
+
+## Setup
+### Setup virtual environment
+virtualenv -p python3 venv/
+
+source venv/bin/activate
+
+### Install packages
+pip3 install -r requirements.txt
+
+### Migrate and start server
+python3 manage.py migrate
+
+python3 manage.py runserver
