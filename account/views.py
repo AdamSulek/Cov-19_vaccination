@@ -27,6 +27,9 @@ def home_view(request):
     }
     return render(request, "account/home.html", context)
 
+def about_view(request):
+    return render(request, "account/about.html")
+
 def logout_view(request):
     logout(request)
     return redirect('/')

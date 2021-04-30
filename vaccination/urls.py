@@ -20,17 +20,22 @@ from account.views import (
         register_view,
         login_view,
         logout_view,
-        profile_view
+        profile_view,
+        about_view
 )
 from submission.views import (
         submission_view
 )
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name="home"),
-    path('register/', register_view, name="register_view"),
+    path('about/', about_view, name="about"),
+    path('register/', register_view, name="register"),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
     path('profile/', profile_view, name="profile"),
     path('profile/submission', submission_view, name='submission')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

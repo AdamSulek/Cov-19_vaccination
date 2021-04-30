@@ -1,38 +1,42 @@
 {% extends "account/base.html" %}
-{% block content %}
-    <h1> Jesteś przewlekle chory? Nie zwlekaj i zaszczep się przeciw COVID-19 </h1>
 
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Zarejestruj sie na szczepienie</legend>
-                {{ form }}
-            </fieldset>
-            <div class="form-group">
-                <a class="btn btn-outline-info" href="{% url 'register_view' %}">Zarejestruj sie</a>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Jesli masz konto <a class="ml-2" href="{% url 'login' %}">Zaloguj sie do swojego konta</a>
-            </small>
-        </div>
-    </div>
-    <h1> Sprawdz liste przychodni </h1>
-    <div class="content-section">
-        {% for p in place %}
-            <article class="media content-section">
-              <div class="media-body">
-                <div class="article-metadata">
-                  <!-- <a class="mr-2" href="#"> {{ sub.place_id }}</a> -->
-                  <a class="mr-2"> {{ p.place_name }}</a>
-                    <div>
-                       <small> <a class="mr-2"> {{ p.adress }}</a> </small>
-                    </div>
+
+{% block content %}
+    <br/>
+
+        <h3> Jesteś przewlekle chory? Nie zwlekaj i zaszczep się przeciw COVID-19 </h3>
+
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Zarejestruj sie na szczepienie</legend>
+                    {{ form }}
+                </fieldset>
+                <div class="form-group">
+                    <a class="btn btn-outline-info" href="{% url 'register' %}">Zarejestruj sie</a>
                 </div>
-              </div>
-            </article>
-        {% endfor %}
-    </div>
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Jesli masz konto <a class="ml-2" href="{% url 'login' %}">Zaloguj sie do swojego konta</a>
+                </small>
+            </div>
+        </div>
+      </center>
+
+      <br/><br/><br/><br/><br/><br/><br/>
+      <h1> Sprawdz liste przychodni: </h1>
+      <div class="card card-body">
+          {% for p in place %}
+              <article class="media content-section">
+                <div class="media-body">
+                  <div class="article-metadata">
+                    <a class="mr-2"> {{ p }}</a>
+                  </div>
+                </div>
+              </article>
+          {% endfor %}
+      </div>
+    </center>
 {% endblock %}
