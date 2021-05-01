@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,11 +25,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'secrets.SECRET_KEY'
-
+# SECRET_KEY = 'secrets.SECRET_KEY'
+SECRET_KEY = env(SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=True)
-
+# DEBUG = config('DEBUG', cast=bool, default=True)
+DEBUG = env(DEBUG)
 ALLOWED_HOSTS = []
 
 
@@ -161,6 +165,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'szczepieniaprzeciwcovid19@gmail.com'
-EMAIL_HOST_PASSWORD = 'secrets.EMAIL_HOST_PASSWORD'
+# EMAIL_HOST_PASSWORD = 'secrets.EMAIL_HOST_PASSWORD'
+EMAIL_HOST_PASSWORD = env(EMAIL_HOST_PASSWORD)
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
