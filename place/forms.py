@@ -7,5 +7,6 @@ class PlaceForm(forms.ModelForm):
         fields = (
                 "submission",
                 "place_name",
-                "adress"
+                "adress",
+                "website"
             )

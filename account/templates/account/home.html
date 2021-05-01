@@ -33,6 +33,11 @@
                 <div class="media-body">
                   <div class="article-metadata">
                     <a class="mr-2"> {{ p }}</a>
+                    {% if p.website %}
+                    <div>
+                       <small> <a class="mr-2" href="{{ p.website }}"> {{ p.website }} </a> </small>
+                    </div>
+                    {% endif %}
                   </div>
                 </div>
               </article>

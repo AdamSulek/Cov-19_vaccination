@@ -7,7 +7,7 @@ class Place(models.Model):
     place_name = models.CharField(max_length=60, null=True)
     adress = models.CharField(max_length=60, null=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
-    # website = models.CharField(max_length=200, null=True)
+    website = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return f'{self.place_name} {self.city} {self.adress}'
