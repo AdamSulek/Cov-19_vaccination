@@ -29,18 +29,14 @@
       <h1> Sprawdz liste przychodni: </h1>
       <div class="card card-body">
           {% for p in place %}
-              <article class="media content-section">
-                <div class="media-body">
-                  <div class="article-metadata">
-                    <a class="mr-2"> {{ p }}</a>
-                    {% if p.website %}
-                    <div>
-                       <small> <a class="mr-2" href="{{ p.website }}"> {{ p.website }} </a> </small>
-                    </div>
-                    {% endif %}
-                  </div>
+            <ul class="w3-ul">
+                <a class="mr-2"> {{ p }}</a>
+                {% if p.website %}
+                <div>
+                   <small> <a class="mr-2" href="{{ p.website }}"> {{ p.website }} </a> </small>
                 </div>
-              </article>
+                {% endif %}
+            </ul>
           {% endfor %}
       </div>
     </center>
