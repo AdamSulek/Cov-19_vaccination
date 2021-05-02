@@ -24,3 +24,24 @@ This project use SQlite as a backend database with Django.
 `python3 manage.py migrate`
 
 `python3 manage.py runserver`
+
+### SECRET_KEY_GENERATION
+Please use this key as SECRET_KEY: r&i*^jqdolq1&@t@1@b-(t9i-4koo($y5kcb0=7nbbuu=zpei@
+
+or generate your own on this page: https://djecrety.ir/
+
+Create `/etc/config.json` file (on linux) as following:
+
+`{
+  "SECRET_KEY": "r&i*^jqdolq1&@t@1@b-(t9i-4koo($y5kcb0=7nbbuu=zpei@",
+  "EMAIL_USER": "your_email_adress",
+  "EMAIL_PASS": "zyour_email_password",
+  "ALLOWED_HOSTS": "*",
+  "DEBUG" : true,
+  "WS_PORT": 6379
+}`
+
+where SECRET_KEY is generated above,
+email preffered with gmail with less-secure configuration (instruction: https://www.youtube.com/watch?v=hrAIiSdf56U).
+
+Put your email and pasword to this config.json file to get possibility to send an email.

@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import json
 from decouple import config
+<<<<<<< HEAD
 import environ
 env = environ.Env(
     # set casting, default value
@@ -23,6 +25,11 @@ environ.Env.read_env()
 
 # False if not in os.environ
 DEBUG = env('DEBUG')
+=======
+
+with open('/etc/config.json') as config_file:
+    config = json.loads(config_file.read())
+>>>>>>> c9c7087e75453ea882a37f0d28111b582f15f230
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,10 +38,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 # SECRET_KEY = 'secrets.SECRET_KEY'
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config('DEBUG', cast=bool, default=True)
+=======
+SECRET_KEY = config["SECRET_KEY"]
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = config('DEBUG', cast=bool, default=True)
+DEBUG = config["DEBUG"]
+>>>>>>> c9c7087e75453ea882a37f0d28111b582f15f230
 
 ALLOWED_HOSTS = []
 
@@ -170,8 +184,13 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
+<<<<<<< HEAD
 EMAIL_HOST_USER = 'szczepieniaprzeciwcovid19@gmail.com'
 # EMAIL_HOST_PASSWORD = 'secrets.EMAIL_HOST_PASSWORD'
 EMAIL_HOST_PASSWORD = env(EMAIL_HOST_PASSWORD)
+=======
+EMAIL_HOST_USER = config.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = config.get('EMAIL_PASS')
+>>>>>>> c9c7087e75453ea882a37f0d28111b582f15f230
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
