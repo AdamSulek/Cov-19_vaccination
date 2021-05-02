@@ -10,4 +10,4 @@ class Place(models.Model):
     website = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return f'{self.place_name} {self.city} {self.adress}'
+        return f'{self.city}, {self.adress}, {self.place_name}'

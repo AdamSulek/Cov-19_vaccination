@@ -23,7 +23,8 @@ def register_view(request):
 
 def home_view(request):
     context = {
-        'place': Place.objects.all()
+        'place': Place.objects.all().order_by("city"),
+        "submission_num": Submission.objects.count()
     }
     return render(request, "account/home.html", context)
 
@@ -69,6 +70,7 @@ def profile_view(request):
         place_text = Place_sub.objects.filter(sub_id=submission).get()
     context = {
         # "submission": submission,
-        "place_text": place_text
+        "place_text": place_text,
+        "submission_num": Submission.objects.count()
     }
     return render(request, "account/profile.html", context)

@@ -33,6 +33,8 @@ def check_place(place_sub, queue=1):
 
     return True
 
+# GLOBAL_num = 0
+
 @login_required
 def submission_view(request):
     context = {}
@@ -55,6 +57,9 @@ def submission_view(request):
                     place_text = Place_sub.objects.filter(sub_id=submission).get()
                     place_as_text = ""
                     place_as_text += str(place_text)
+                    size = len(place_as_text)
+                    place_as_text = place_as_text[:size -9]
+                    # print(type(place_as_text))
                     message_content = ""
                     message_content += "Szanown(y)/(a) Panie/Pani," + '\n\n' \
                                     + "Zostal Pan pozytywnie zakwalifikowany do szczepienia!" \
@@ -68,17 +73,19 @@ def submission_view(request):
                         settings.EMAIL_HOST_USER, #from send_mail
                         [mail], # to mail
                     )
+                    # global GLOBAL_num
+                    # GLOBAL_num = GLOBAL_num + 1
                 else:
-                    place_text = None
+                    place_as_text = None
                     messages.error(request, f'Wybierz inny termin wizyty!')
     else:
         sub_form = SubmissionForm()
         place_sub_form = Place_subForm()
-        place_text = None
-        # city = None
+        place_as_text = None
 
     context = {"sub_form": sub_form,
                "place_sub_form": place_sub_form,
-               "place_text": place_text }
+               "place_text": place_as_text,
+               "submission_num": Submission.objects.count() }
 
     return render(request, "submission/submission.html", context)
