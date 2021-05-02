@@ -1,0 +1,8 @@
+{
+  "SECRET_KEY": "r&i*^jqdolq1&@t@1@b-(t9i-4koo($y5kcb0=7nbbuu=zpei@",
+  "EMAIL_USER": "szczepieniaprzeciwcovid19@gmail.com",
+  "EMAIL_PASS": "Cov_19_12345",
+  "ALLOWED_HOSTS": "*",
+  "DEBUG" : true,
+  "WS_PORT": 6379
+}
