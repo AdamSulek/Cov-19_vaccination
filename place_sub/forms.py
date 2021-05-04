@@ -1,8 +1,6 @@
 from django import forms
 from .models import Place_sub
 from django.contrib.admin import widgets
-# import floppyforms as forms
-# from .models import Date_Time
 from django.forms import ModelForm
 from datetime import datetime, timedelta
 import datetime
@@ -28,11 +26,6 @@ def get_dates(start_time='07:00', end_time='15:00', period=5):
 
 class Place_subForm(forms.ModelForm):
     DATE_CHOICES = get_dates()
-    # DATE_CHOICES = (
-    #         ("2021-04-30 7:30", "2021-04-30 7:30"),
-    #         ("2021-04-30 8:30", "2021-04-30 8:30"),
-    #         ("2021-04-30 9:30", "2021-04-30 9:30"),
-    # )
     date_time = forms.ChoiceField(choices=DATE_CHOICES)
 
     class Meta:

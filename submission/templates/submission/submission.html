@@ -1,7 +1,6 @@
 {% extends "account/base.html" %}
 {% block content %}
     <center>
-    <!-- <div class="content-section"> -->
     <div class="card card-body">
         <form method="POST">
             {% csrf_token %}
@@ -10,7 +9,6 @@
                 <h3>{{user.username}} jestes juz zarejestrowany na szczepienie</h3><br/><br/>
                 <p> Twoje miejsce szczepienia oraz termin to: {{ place_text }} </p>
             {% else %}
-            <!-- <fieldset class="form-group"> -->
             <div class="border-top pt-3">
                 <h2 class="border-bottom mb-4">Odpowiedz na ponizsze pytania</h2>
                 <p>Czy mial Pan/Pani wykonywana dialize? {{ sub_form.dialisis }} </p>
@@ -29,7 +27,6 @@
                     {{ place_sub_form.date_time }}<br/>
 
             </div>
-            <!-- </fieldset> -->
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Potwierdz</button>
             </div>

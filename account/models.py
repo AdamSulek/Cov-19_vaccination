@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-# from submission.models import Submission
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username, password=None, user_submission=False):

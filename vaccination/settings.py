@@ -15,13 +15,8 @@ import os
 import json
 from decouple import config
 import environ
-# with open('/etc/config.json') as config_file:
-#     config = json.loads(config_file.read())
 
-# Environ settings
-# env = environ.Env(
-#     DEBUG=(bool, False)
-# )
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,14 +25,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'r&i*^jqdolq1&@t@1@b-(t9i-4koo($y5kcb0=7nbbuu=zpei@'
 
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: do't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
 
-# ALLOWED_HOSTS = ['cov-19-accination.herokuapp.com', '127.0.0.1']
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vaccination-cov-19.herokuapp.com']
 
 # Application definition
@@ -101,7 +94,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

@@ -69,7 +69,6 @@ def profile_view(request):
         submission = Submission.objects.filter(user=request.user).get()
         place_text = Place_sub.objects.filter(sub_id=submission).get()
     context = {
-        # "submission": submission,
         "place_text": place_text,
         "submission_num": Submission.objects.count()
     }
