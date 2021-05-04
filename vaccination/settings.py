@@ -28,10 +28,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config["SECRET_KEY"]
 # SECURITY WARNING: do't run with debug turned on in production!
-DEBUG = config["DEBUG"]
+# DEBUG = config["DEBUG"]
+DEBUG = False
 
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cov-19-accination.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
