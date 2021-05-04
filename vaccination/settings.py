@@ -145,7 +145,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIR = [
         os.path.join(BASE_DIR, 'static'),
-        # BASE_DIR / 'static'
         ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -181,11 +180,11 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 #HTTPS settings
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 
 #HSTS settings
-# SECURE_HSTS_SECONDS = 31536000 # 1 year
-# SECURE_HSTS_PRELOAD = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 31536000 # 1 year
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
