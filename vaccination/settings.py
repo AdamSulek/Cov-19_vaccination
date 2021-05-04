@@ -33,7 +33,7 @@ SECRET_KEY = config["SECRET_KEY"]
 DEBUG = True
 
 # ALLOWED_HOSTS = ['cov-19-accination.herokuapp.com', '127.0.0.1']
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vaccination-cov-19.herokuapp.com']
 
 # Application definition
 
