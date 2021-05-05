@@ -31,7 +31,7 @@ SECRET_KEY = config["SECRET_KEY"]
 # DEBUG = config["DEBUG"]
 DEBUG = False
 
-ALLOWED_HOSTS = ['cov-19-accination.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['cov-19-accination.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
