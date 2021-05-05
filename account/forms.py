@@ -5,7 +5,8 @@ from account.models import Account
 
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Pole wymagane. Dodaj adres email.')
+    email = forms.EmailField(max_length=254,
+                             help_text='Pole wymagane. Dodaj adres email.')
 
     class Meta:
         model = Account

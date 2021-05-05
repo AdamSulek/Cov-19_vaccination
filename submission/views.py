@@ -33,8 +33,6 @@ def check_place(place_sub, queue=1):
 
     return True
 
-# GLOBAL_num = 0
-
 @login_required
 def submission_view(request):
     context = {}
@@ -59,7 +57,6 @@ def submission_view(request):
                     place_as_text += str(place_text)
                     size = len(place_as_text)
                     place_as_text = place_as_text[:size -9]
-                    # print(type(place_as_text))
                     message_content = ""
                     message_content += "Szanown(y)/(a) Panie/Pani," + '\n\n' \
                                     + "Zostal Pan pozytywnie zakwalifikowany do szczepienia!" \
@@ -73,8 +70,6 @@ def submission_view(request):
                         settings.EMAIL_HOST_USER, #from send_mail
                         [mail], # to mail
                     )
-                    # global GLOBAL_num
-                    # GLOBAL_num = GLOBAL_num + 1
                 else:
                     place_as_text = None
                     messages.error(request, f'Wybierz inny termin wizyty!')

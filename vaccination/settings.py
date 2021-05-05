@@ -14,8 +14,8 @@ from pathlib import Path
 import os
 import json
 from decouple import config
-with open('/etc/config.json') as config_file:
-    config = json.loads(config_file.read())
+import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,13 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = config["SECRET_KEY"]
+SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: do't run with debug turned on in production!
-# DEBUG = config["DEBUG"]
-DEBUG = False
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['cov-19-accination.herokuapp.com/', '127.0.0.1']
 
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'vaccination-cov-19.herokuapp.com']
 
 # Application definition
 
@@ -95,7 +94,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -139,7 +137,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIR = [
         os.path.join(BASE_DIR, 'static'),
-        # BASE_DIR / 'static'
         ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -168,8 +165,9 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = config.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = config.get('EMAIL_PASS')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
